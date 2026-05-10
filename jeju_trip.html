@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>濟州島四日行程 / Jeju 4-Day Itinerary · 6/5–6/8</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sky: #E8F4F8; --sea: #B8DCE8; --mint: #D4EEE6; --sage: #7BBFA8;
+  --deep: #2C6E6A; --coral: #E8856A; --coral-light: #FDEAE4;
+  --sun: #F5C842; --sun-light: #FEF6D0;
+  --text: #1E3A38; --text-mid: #4A7A76; --text-soft: #7AA8A4;
+  --white: #FFFFFF; --off-white: #F4FAF8; --border: #C8E4DE;
+  --d1: #4A9B8A; --d1-light: #E0F4EF;
+  --d2: #5B8DC2; --d2-light: #E0EEFA;
+  --d3: #9B6BBF; --d3-light: #F0E8FA;
+  --d4: #C27A4A; --d4-light: #FAF0E4;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body { background:var(--off-white); color:var(--text); font-family:'DM Sans',sans-serif; font-size:15px; line-height:1.65; }
+
+/* ── LANG TOGGLE ── */
+[lang-en] { display: none; }
+[lang-zh] { display: block; }
+span[lang-en] { display: none; }
+span[lang-zh] { display: inline; }
+body.en [lang-zh] { display: none; }
+body.en [lang-en] { display: block; }
+body.en span[lang-zh] { display: none; }
+body.en span[lang-en] { display: inline; }
+
+/* keep flex containers working */
+.hero-pills[lang-en], .hero-pills[lang-zh],
+.tips-inner[lang-en], .tips-inner[lang-zh],
+.hotels-inner[lang-en], .hotels-inner[lang-zh],
+.weather-inner[lang-en], .weather-inner[lang-zh],
+.weather-stats[lang-en], .weather-stats[lang-zh],
+.map-legend[lang-en], .map-legend[lang-zh],
+.card-meta[lang-en], .card-meta[lang-zh] {
+  display: flex;
+}
+body.en .hero-pills[lang-zh], body.en .tips-inner[lang-zh],
+body.en .hotels-inner[lang-zh], body.en .weather-inner[lang-zh],
+body.en .weather-stats[lang-zh], body.en .map-legend[lang-zh],
+body.en .card-meta[lang-zh] { display: none; }
+body.en .hero-pills[lang-en], body.en .tips-inner[lang-en],
+body.en .hotels-inner[lang-en], body.en .weather-inner[lang-en],
+body.en .weather-stats[lang-en], body.en .map-legend[lang-en],
+body.en .card-meta[lang-en] { display: flex; }
+
+/* ── HERO ── */
+.hero {
+  background: linear-gradient(160deg, #1A5C58 0%, #2C8A82 50%, #3AADA3 100%);
+  color: white; padding: 52px 40px 44px; position: relative; overflow: hidden;
+}
+.hero-blob1 { position:absolute; top:-60px; right:-80px; width:360px; height:360px; border-radius:50%; background:rgba(255,255,255,0.06); }
+.hero-blob2 { position:absolute; bottom:-100px; left:-40px; width:260px; height:260px; border-radius:50%; background:rgba(255,255,255,0.04); }
+.hero-inner { max-width:800px; margin:0 auto; position:relative; }
+.hero-eyebrow { font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:rgba(255,255,255,0.65); margin-bottom:12px; font-weight:400; }
+.hero h1 { font-family:'Noto Serif TC',serif; font-size:clamp(26px,5.5vw,46px); font-weight:300; line-height:1.18; margin-bottom:6px; }
+.hero h1 .en-sub { font-size:clamp(16px,3vw,26px); opacity:0.7; display:block; font-weight:300; margin-top:4px; }
+.hero-sub { color:rgba(255,255,255,0.6); font-size:14px; font-weight:300; }
+.hero-pills { display:flex; gap:10px; flex-wrap:wrap; margin-top:24px; }
+.hero-pill { background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.2); border-radius:20px; padding:5px 14px; font-size:12.5px; color:white; }
+
+/* ── LANG SWITCHER ── */
+.lang-switcher {
+  position: absolute; top: 20px; right: 40px;
+  display: flex; gap: 0; border-radius: 20px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+.lang-btn {
+  padding: 5px 14px; font-size: 12px; font-weight: 500;
+  color: rgba(255,255,255,0.7); background: transparent;
+  border: none; cursor: pointer; font-family: inherit;
+  transition: all 0.2s; letter-spacing: 0.04em;
+}
+.lang-btn.active { background: rgba(255,255,255,0.2); color: white; }
+.lang-btn:hover:not(.active) { background: rgba(255,255,255,0.1); color: white; }
+
+/* ── NAV ── */
+.day-nav { position:sticky; top:0; z-index:100; background:white; border-bottom:1.5px solid var(--border); box-shadow:0 2px 12px rgba(44,110,106,0.08); }
+.day-nav-inner { max-width:800px; margin:0 auto; display:flex; align-items:center; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
+.day-nav-inner::-webkit-scrollbar { display:none; }
+.nav-btn { flex-shrink:0; padding:14px 20px; font-size:13px; font-weight:500; color:var(--text-soft); text-decoration:none; border:none; background:none; cursor:pointer; border-bottom:2.5px solid transparent; transition:all 0.2s; display:flex; align-items:center; gap:6px; font-family:inherit; }
+.nav-btn:hover { color:var(--deep); }
+.nav-btn.d1:hover,.nav-btn.d1.active { color:var(--d1); border-bottom-color:var(--d1); }
+.nav-btn.d2:hover,.nav-btn.d2.active { color:var(--d2); border-bottom-color:var(--d2); }
+.nav-btn.d3:hover,.nav-btn.d3.active { color:var(--d3); border-bottom-color:var(--d3); }
+.nav-btn.d4:hover,.nav-btn.d4.active { color:var(--d4); border-bottom-color:var(--d4); }
+.nav-dot { width:8px; height:8px; border-radius:50%; }
+.nav-label { display:flex; flex-direction:column; line-height:1.3; }
+.nav-date { font-size:10px; opacity:0.6; font-weight:400; }
+
+/* ── WEATHER ── */
+.weather-bar { background:var(--deep); padding:12px 40px; }
+.weather-inner { max-width:800px; margin:0 auto; display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+.weather-label { font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.5); }
+.weather-stats { display:flex; gap:16px; flex-wrap:wrap; }
+.w-stat { font-size:12.5px; color:white; display:flex; align-items:center; gap:5px; }
+.weather-cta { margin-left:auto; background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.22); border-radius:16px; padding:5px 14px; font-size:12px; color:white; text-decoration:none; transition:background 0.2s; white-space:nowrap; }
+.weather-cta:hover { background:rgba(255,255,255,0.22); }
+
+/* ── TIPS ── */
+.tips-strip { background:var(--sun-light); border-bottom:1px solid #ECDFA0; padding:10px 40px; }
+.tips-inner { max-width:800px; margin:0 auto; display:flex; gap:20px; flex-wrap:wrap; }
+.tip-item { font-size:12px; color:#6B5A10; display:flex; align-items:center; gap:5px; }
+
+/* ── HOTELS ── */
+.hotels-bar { background:var(--mint); border-bottom:1px solid #A8D8CC; padding:12px 40px; }
+.hotels-inner { max-width:800px; margin:0 auto; display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+.hotels-label { font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-mid); font-weight:500; }
+.hotel-badge { background:white; border:1px solid #B0D8CC; border-radius:16px; padding:4px 14px; font-size:12px; color:var(--text); display:flex; align-items:center; gap:5px; }
+.hotel-badge a { color:var(--text); text-decoration:none; }
+.hotel-badge a:hover { color:var(--deep); }
+.hotel-night { color:var(--text-soft); }
+
+/* ── MAIN ── */
+main { max-width:800px; margin:0 auto; padding:36px 40px 80px; }
+
+/* ── DAY SECTION ── */
+.day-section { margin-bottom:60px; scroll-margin-top:56px; }
+.day-header { display:flex; align-items:center; gap:14px; margin-bottom:4px; flex-wrap:wrap; }
+.day-badge-large { font-size:10px; letter-spacing:0.18em; text-transform:uppercase; font-weight:500; padding:4px 12px; border-radius:4px; }
+.day-badge-large.d1 { background:var(--d1-light); color:var(--d1); }
+.day-badge-large.d2 { background:var(--d2-light); color:var(--d2); }
+.day-badge-large.d3 { background:var(--d3-light); color:var(--d3); }
+.day-badge-large.d4 { background:var(--d4-light); color:var(--d4); }
+.day-title-text { font-family:'Noto Serif TC',serif; font-size:20px; font-weight:300; color:var(--text); flex:1; }
+.day-date-text { font-size:12px; color:var(--text-soft); }
+.day-hotel-pill { font-size:10px; border-radius:3px; padding:3px 8px; font-weight:500; letter-spacing:0.04em; }
+.day-hotel-pill.d1,.day-hotel-pill.d2 { background:var(--d1-light); color:var(--d1); }
+.day-hotel-pill.d3 { background:var(--d3-light); color:var(--d3); }
+.day-hotel-pill.d4 { background:var(--d4-light); color:var(--d4); }
+.day-divider { height:2px; border-radius:1px; margin-bottom:20px; }
+.day-divider.d1 { background:linear-gradient(to right,var(--d1),transparent); }
+.day-divider.d2 { background:linear-gradient(to right,var(--d2),transparent); }
+.day-divider.d3 { background:linear-gradient(to right,var(--d3),transparent); }
+.day-divider.d4 { background:linear-gradient(to right,var(--d4),transparent); }
+
+/* ── MAP ── */
+.map-wrap { border-radius:12px; overflow:hidden; border:1px solid var(--border); margin-bottom:20px; box-shadow:0 2px 12px rgba(44,110,106,0.06); }
+.map-wrap iframe { display:block; width:100%; height:260px; border:none; }
+.map-legend { background:white; border-top:1px solid var(--border); padding:10px 14px; display:flex; flex-wrap:wrap; gap:10px; }
+.map-legend-item { font-size:11px; color:var(--text-mid); display:flex; align-items:center; gap:5px; }
+.legend-dot { width:9px; height:9px; border-radius:50%; flex-shrink:0; }
+
+/* ── ROUTE NOTE ── */
+.route-note { background:white; border:1px solid var(--border); border-radius:8px; padding:10px 14px; font-size:12.5px; color:var(--text-mid); margin-bottom:20px; display:flex; align-items:flex-start; gap:8px; }
+.route-note-icon { font-size:14px; flex-shrink:0; margin-top:1px; }
+
+/* ── TIMELINE ── */
+.timeline { display:flex; flex-direction:column; }
+.tl-item { display:flex; }
+.tl-left { width:68px; flex-shrink:0; display:flex; flex-direction:column; align-items:flex-end; padding-right:14px; padding-top:4px; }
+.tl-time { font-size:11px; color:var(--text-soft); font-weight:500; letter-spacing:0.04em; }
+.tl-connector { display:flex; flex-direction:column; align-items:center; width:20px; flex-shrink:0; }
+.tl-dot { width:9px; height:9px; border-radius:50%; margin-top:5px; flex-shrink:0; }
+.tl-line { width:1px; flex:1; min-height:16px; margin-top:3px; }
+.tl-line.d1 { background:var(--d1-light); }
+.tl-line.d2 { background:var(--d2-light); }
+.tl-line.d3 { background:var(--d3-light); }
+.tl-line.d4 { background:var(--d4-light); }
+.tl-content { flex:1; padding:0 0 22px 14px; }
+.tl-transit { display:flex; margin-bottom:6px; }
+.tl-transit .tl-left { opacity:0.45; }
+.tl-transit-body { flex:1; padding:2px 0 10px 14px; display:flex; align-items:center; gap:8px; }
+.transit-badge { font-size:10px; background:var(--sky); color:var(--text-mid); border-radius:10px; padding:2px 9px; white-space:nowrap; }
+.transit-text { font-size:11px; color:var(--text-soft); font-style:italic; }
+
+/* ── CARD ── */
+.card { background:white; border-radius:10px; padding:14px 16px; border:1px solid var(--border); transition:box-shadow 0.15s; }
+.card:hover { box-shadow:0 3px 14px rgba(44,110,106,0.09); }
+.card-row { display:flex; align-items:flex-start; gap:8px; margin-bottom:6px; flex-wrap:wrap; }
+.card-icon { font-size:15px; margin-top:1px; flex-shrink:0; }
+.card-name { font-size:13.5px; font-weight:500; color:var(--text); flex:1; min-width:0; }
+.card-name a { color:var(--text); text-decoration:none; border-bottom:1px solid var(--sea); transition:border-color 0.15s; }
+.card-name a:hover { border-color:var(--sage); }
+.card-desc { font-size:12.5px; color:var(--text-mid); margin-bottom:10px; line-height:1.55; }
+.card-meta { display:flex; flex-wrap:wrap; gap:5px; }
+.meta-chip { font-size:11px; background:var(--off-white); border:1px solid var(--border); border-radius:4px; padding:2px 8px; color:var(--text-mid); display:flex; align-items:center; gap:4px; }
+.meta-chip span { color:var(--text); }
+
+/* ── TAGS ── */
+.tags { display:flex; flex-wrap:wrap; gap:4px; margin-bottom:7px; }
+.tag { font-size:10px; border-radius:3px; padding:2px 7px; font-weight:500; letter-spacing:0.03em; }
+.t-food { background:#E0F4EF; color:#1A6A50; }
+.t-cafe { background:#FEF6D0; color:#8A6010; }
+.t-spa  { background:#F0E8FA; color:#5A3A8A; }
+.t-nat  { background:#E0F4EF; color:#1A6A50; }
+.t-shop { background:#FDEAE4; color:#8A3820; }
+.t-bar  { background:#E0EEFA; color:#1A4870; }
+.t-warn { background:#FDEAE4; color:#8A2020; }
+.t-free { background:var(--sky); color:var(--text-mid); }
+.t-res  { background:#FFF0D0; color:#8A5808; }
+
+/* ── ALERTS ── */
+.alert { border-radius:6px; padding:9px 12px; margin-top:8px; font-size:12px; display:flex; align-items:flex-start; gap:7px; line-height:1.5; }
+.alert.warn { background:#FDEAE4; color:#7A2A1A; border-left:3px solid var(--coral); }
+.alert.tip  { background:#E0F4EF; color:#1A5A3A; border-left:3px solid var(--sage); }
+.alert.info { background:var(--d2-light); color:#1A3A6A; border-left:3px solid var(--d2); }
+
+/* ── RESERVE ── */
+.reserve-box { background:#FFF8E8; border:1px solid #E8C870; border-radius:6px; padding:9px 12px; margin-top:8px; font-size:12px; color:#7A5008; display:flex; align-items:flex-start; gap:7px; flex-wrap:wrap; }
+.res-link { color:var(--coral); font-weight:500; text-decoration:none; border-bottom:1px solid rgba(232,133,106,0.4); }
+.res-link:hover { border-color:var(--coral); }
+
+/* ── FOOTER ── */
+footer { background:var(--deep); color:rgba(255,255,255,0.4); text-align:center; padding:28px; font-size:12px; }
+
+@media (max-width:600px) {
+  .hero,.weather-bar,.tips-strip,.hotels-bar { padding-left:20px; padding-right:20px; }
+  main { padding:24px 20px 60px; }
+  .tl-left { width:52px; }
+  .weather-cta { display:none; }
+  .map-wrap iframe { height:220px; }
+  .lang-switcher { top:14px; right:20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══ HERO ══ -->
+<div class="hero">
+  <div class="hero-blob1"></div>
+  <div class="hero-blob2"></div>
+
+  <div class="lang-switcher">
+    <button class="lang-btn active" onclick="setLang('zh')" id="btn-zh">中文</button>
+    <button class="lang-btn" onclick="setLang('en')" id="btn-en">EN</button>
+  </div>
+
+  <div class="hero-inner">
+    <div class="hero-eyebrow">🇰🇷 Jeju Island · Travel Itinerary 2026</div>
+    <h1>
+      <span lang-zh>濟州島四日行程</span>
+      <span lang-en>Jeju Island · 4-Day Itinerary</span>
+    </h1>
+    <div class="hero-sub">
+      <span lang-zh>西部・南部・濟州市區 ── 放鬆為主的清新夏日之旅</span>
+      <span lang-en>West · South · Jeju City — A laid-back summer escape</span>
+    </div>
+
+    <div class="hero-pills" lang-zh>
+      <span class="hero-pill">📅 6/5（四）抵達</span>
+      <span class="hero-pill">✈️ 6/8（日）離島</span>
+      <span class="hero-pill">🚗 Uber 為主</span>
+      <span class="hero-pill">🧳 接送機服務</span>
+    </div>
+    <div class="hero-pills" lang-en>
+      <span class="hero-pill">📅 Arrive 6/5 (Thu)</span>
+      <span class="hero-pill">✈️ Depart 6/8 (Sun)</span>
+      <span class="hero-pill">🚗 Uber / Kakao T</span>
+      <span class="hero-pill">🧳 Airport Transfer</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══ DAY NAV ══ -->
+<nav class="day-nav">
+  <div class="day-nav-inner">
+    <a href="#day1" class="nav-btn d1">
+      <span class="nav-dot" style="background:var(--d1)"></span>
+      <span class="nav-label">
+        <span>Day 1</span>
+        <span class="nav-date"><span lang-zh>6/5 週四</span><span lang-en>6/5 Thu</span></span>
+      </span>
+    </a>
+    <a href="#day2" class="nav-btn d2">
+      <span class="nav-dot" style="background:var(--d2)"></span>
+      <span class="nav-label">
+        <span>Day 2</span>
+        <span class="nav-date"><span lang-zh>6/6 週五</span><span lang-en>6/6 Fri</span></span>
+      </span>
+    </a>
+    <a href="#day3" class="nav-btn d3">
+      <span class="nav-dot" style="background:var(--d3)"></span>
+      <span class="nav-label">
+        <span>Day 3</span>
+        <span class="nav-date"><span lang-zh>6/7 週六</span><span lang-en>6/7 Sat</span></span>
+      </span>
+    </a>
+    <a href="#day4" class="nav-btn d4">
+      <span class="nav-dot" style="background:var(--d4)"></span>
+      <span class="nav-label">
+        <span>Day 4</span>
+        <span class="nav-date"><span lang-zh>6/8 週日</span><span lang-en>6/8 Sun</span></span>
+      </span>
+    </a>
+  </div>
+</nav>
+
+<!-- ══ WEATHER ══ -->
+<div class="weather-bar">
+  <div class="weather-inner" lang-zh>
+    <div class="weather-label">6月濟州天氣</div>
+    <div class="weather-stats">
+      <div class="w-stat">🌡️ <strong>白天 23–26°C</strong></div>
+      <div class="w-stat">🌙 夜間 17–21°C</div>
+      <div class="w-stat">🌧️ 約 10–13 個雨天</div>
+      <div class="w-stat">☀️ 每日約 7–10h 日照</div>
+      <div class="w-stat">💧 濕度 80–85%</div>
+    </div>
+    <a href="https://www.accuweather.com/en/kr/jeju/224209/weather-forecast/224209" target="_blank" class="weather-cta">查看即時天氣 →</a>
+  </div>
+  <div class="weather-inner" lang-en>
+    <div class="weather-label">June Weather</div>
+    <div class="weather-stats">
+      <div class="w-stat">🌡️ <strong>Daytime 23–26°C</strong></div>
+      <div class="w-stat">🌙 Night 17–21°C</div>
+      <div class="w-stat">🌧️ ~10–13 rainy days</div>
+      <div class="w-stat">☀️ ~7–10h sunshine/day</div>
+      <div class="w-stat">💧 Humidity 80–85%</div>
+    </div>
+    <a href="https://www.accuweather.com/en/kr/jeju/224209/weather-forecast/224209" target="_blank" class="weather-cta">Live Weather →</a>
+  </div>
+</div>
+
+<!-- ══ TIPS ══ -->
+<div class="tips-strip">
+  <div class="tips-inner" lang-zh>
+    <div class="tip-item">🌂 隨身帶折疊傘，6月為梅雨前期</div>
+    <div class="tip-item">🧴 UV 指數高，SPF50+ 防曬必備</div>
+    <div class="tip-item">💳 幾乎全面刷卡，部分小攤需現金</div>
+    <div class="tip-item">🐈 Kakao T 叫車比 Uber 穩定</div>
+  </div>
+  <div class="tips-inner" lang-en>
+    <div class="tip-item">🌂 Carry a compact umbrella — early rainy season</div>
+    <div class="tip-item">🧴 High UV index — SPF 50+ sunscreen essential</div>
+    <div class="tip-item">💳 Cards accepted widely; small stalls may need cash</div>
+    <div class="tip-item">🐈 Kakao T is more reliable than Uber in Jeju</div>
+  </div>
+</div>
+
+<!-- ══ HOTELS ══ -->
+<div class="hotels-bar">
+  <div class="hotels-inner" lang-zh>
+    <div class="hotels-label">住宿安排</div>
+    <div class="hotel-badge">🏨 <a href="https://maps.google.com/?cid=2108551354255263169" target="_blank">Lotte Hotel Jeju</a> <span class="hotel-night">Day 1–2（中文觀光區）</span></div>
+    <div class="hotel-badge">🏙️ 濟州市區自選飯店 <span class="hotel-night">Day 3</span></div>
+  </div>
+  <div class="hotels-inner" lang-en>
+    <div class="hotels-label">Accommodation</div>
+    <div class="hotel-badge">🏨 <a href="https://maps.google.com/?cid=2108551354255263169" target="_blank">Lotte Hotel Jeju</a> <span class="hotel-night">Day 1–2 (Jungmun)</span></div>
+    <div class="hotel-badge">🏙️ Hotel in Jeju City <span class="hotel-night">Day 3</span></div>
+  </div>
+</div>
+
+<main>
+
+<!-- ════ DAY 1 ════ -->
+<div class="day-section" id="day1">
+  <div class="day-header">
+    <span class="day-badge-large d1">Day 01</span>
+    <span class="day-title-text">
+      <span lang-zh>機場 → 西部 → 南部飯店</span>
+      <span lang-en>Airport → West → Southern Hotel</span>
+    </span>
+    <span class="day-date-text"><span lang-zh>6/5 週四</span><span lang-en>6/5 Thu</span></span>
+    <span class="day-hotel-pill d1">🏨 Lotte Hotel</span>
+  </div>
+  <div class="day-divider d1"></div>
+
+  <div class="gmap-wrap">
+    <div id="gmap-canvas-d1" class="gmap-canvas"></div>
+    <div id="gmap-legend-d1" class="gmap-legend"></div>
+  </div>
+
+  <div class="route-note">
+    <span class="route-note-icon">⚡</span>
+    <span lang-zh>今天動線：機場 → 西南（茶博物館・山茶花丘）→ 南部飯店 check-in → 中文觀光區。行李請接送機司機先送 Lotte Hotel 寄存，輕裝遊玩。</span>
+    <span lang-en>Today's route: Airport → Southwest (Tea Museum · Camellia Hill) → Lotte Hotel check-in → Jungmun area. Ask your airport transfer driver to drop luggage at Lotte Hotel first so you can travel light.</span>
+  </div>
+
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-time">09:30</div></div>
+      <div class="tl-connector"><div class="tl-dot" style="background:#378ADD"></div><div class="tl-line d1"></div></div>
+      <div class="tl-content"><div class="card">
+        <div class="card-row"><div class="card-icon">✈️</div><div class="card-name"><span lang-zh>抵達濟州國際機場</span><span lang-en>Arrive Jeju International Airport</span></div></div>
+        <div class="card-desc"><span lang-zh>接送機司機將行李先送 Lotte Hotel 前台寄存，輕裝出發往西。</span><span lang-en>Have your airport transfer driver drop off luggage at Lotte Hotel for storage. Head west light-handed.</span></div>
+        <div class="alert info"><span lang-zh>📌 出發前請確認 Lotte Hotel 行李寄存服務，致電 +82-64-731-1000 告知預計寄存時間。</span><span lang-en>📌 Confirm luggage storage with Lotte Hotel in advance. Call +82-64-731-1000 to arrange.</span></div>
+      </div></div>
+    </div>
+    <div class="tl-transit">
+      <div class="tl-left"></div>
+      <div class="tl-connector"><div class="tl-dot" style="background:transparent;border:1.5px solid #C8E4DE;width:8px;height:8px;border-radius:50%"></div><div class="tl-line d1"></div></div>
+      <div class="tl-transit-body"><span class="transit-badge">🚗 <span lang-zh>約 30 分</span><span lang-en>~30 min</span></span><span class="transit-text"><span lang-zh>機場 → O'sulloc 茶博物館</span><span lang-en>Airport → O'sulloc Tea Museum</span></span></div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-time">10:30</div></div>
+      <div class="tl-connector"><div class="tl-dot" style="background:var(--d1)"></div><div class="tl-line d1"></div></div>
+      <div class="tl-content"><div class="card">
+        <div class="tags"><span class="tag t-nat"><span lang-zh>自然</span><span lang-en>Nature</span></span><span class="tag t-cafe"><span lang-zh>咖啡</span><span lang-en>Café</span></span></div>
+        <div class="card-row"><div class="card-icon">🍵</div><div class="card-name"><a href="https://maps.google.com/?cid=13305624007371115217" target="_blank">★ O'sulloc Tea Museum</a></div></div>
+        <div class="card-desc"><span lang-zh>漫步無邊際茶園、喝抹茶拿鐵、選購伴手禮。旁邊 Innisfree 概念店可順便逛。抹茶草莓蛋糕必點，價格比首爾便宜。約 1–1.5 小時。</span><span lang-en>Stroll the expansive tea fields, sip a matcha latte, and shop for souvenirs. The Innisfree flagship next door is worth a browse. Try the matcha strawberry shortcake — cheaper than Seoul. Allow 1–1.5 hrs.</span></div>
+        <div class="card-meta" lang-zh><div class="meta-chip">🕘 <span>09:00–18:00（全年）</span></div><div class="meta-chip">💰 <span>免費入場，飲品另計</span></div></div>
+        <div class="card-meta" lang-en><div class="meta-chip">🕘 <span>09:00–18:00 (daily)</span></div><div class="meta-chip">💰 <span>Free entry; drinks extra</span></div></div>
+      </div></div>
+    </div>
+    <div class="tl-transit">
+      <div class="tl-left"></div>
+      <div class="tl-connector"><div class="tl-dot" style="background:transparent;border:1.5px solid #C8E4DE;width:8px;height:8px;border-radius:50%"></div><div class="tl-line d1"></div></div>
+      <div class="tl-transit-body"><span class="transit-badge">🚗 <span lang-zh>約 10 分</span><span lang-en>~10 min</span></span><span class="transit-text"><span lang-zh>O'sulloc → 山茶花丘</span><span lang-en>O'sulloc → Camellia Hill</span></span></div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-time">12:00</div></div>
+      <div class="tl-connector"><div class="tl-dot" style="background:var(--d1)"></div><div class="tl-line d1"></div></div>
+      <div class="tl-content"><div class="card">
+        <div class="tags"><span class="tag t-nat"><span lang-zh>自然</span><span lang-en>Nature</span></span><span class="tag t-food"><span lang-zh>午餐</span><span lang-en>Lunch</span></span></div>
+        <div class="card-row"><div class="card-icon">🌺</div><div class="card-name"><a href="https://maps.google.com/?cid=16892243613461625135" target="_blank">★ Camellia Hill 카멜리아힐</a></div></div>
+        <div class="card-desc"><span lang-zh>廣大山茶花植物園，步道平緩好走，6 月綠意盎然適合拍照。園內附設餐廳可解決午餐，約 1 小時。</span><span lang-en>A sprawling camellia botanical garden with gentle paths perfect for photos — lush and green in June. The on-site restaurant handles lunch. Allow ~1 hr.</span></div>
+        <div class="card-meta" lang-zh><div class="meta-chip">🕘 <span>08:30–18:00（全年）</span></div><div class="meta-chip">💰 <span>入場費約 ₩9,000</span></div></div>
+        <div class="card-meta" lang-en><div class="meta-chip">🕘 <span>08:30–18:00 (daily)</span></div><div class="meta-chip">💰 <span>Entry ~₩9,000</span></div></div>
+        <div class="alert tip"><span lang-zh>💡 午餐後再買票可享 50% 折扣（須出示園內餐廳消費收據）</span><span lang-en>💡 Buy your entry ticket after lunch for a 50% discount — just show your restaurant receipt.</span></div>
+      </div></div>
+    </div>
+    <div class="tl-transit">
+      <div class="tl-left"></div>
+      <div class="tl-connector"><div class="tl-dot" style="background:transparent;border:1.5px solid #C8E4DE;width:8px;height:8px;border-radius:50%"></div><div class="tl-line d1"></div></div>
+      <div class="tl-transit-body"><span class="transit-badge">🚗 <span lang-zh>約 25 分</span><span lang-en>~25 min</span></span><span class="transit-text"><span lang-zh>山茶花丘 → Lotte Hotel</span><span lang-en>Camellia Hill → Lotte Hotel</span></span></div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-time">14:00</div></div>
+      <div class="tl-connector"><div class="tl-dot" style="background:#3A6B8A"></div><div class="tl-line d1"></div></div>
+      <div class="tl-content"><div class="card">
+        <div class="tags"><span class="tag t-free"><span lang-zh>輕鬆</span><span lang-en>Relax</span></span></div>
+        <div class="card-row"><div class="card-icon">🏨</div><div class="card-name"><a href="https://maps.google.com/?cid=2108551354255263169" target="_blank">Lotte Hotel Jeju — Check-in</a></div></div>
+        <div class="card-desc"><span lang-zh>取回寄存行李，梳洗休息，感受飯店泳池與環境。Spa 建議今天向前台預約明日時段。</span><span lang-en>Collect your stored luggage, freshen up, and enjoy the pool. Book your Spa slot for tomorrow at the front desk today.</span></div>
+        <div class="card-meta" lang-zh><div class="meta-chip">📞 <span>+82-64-731-1000</span></div></div>
+        <div class="card-meta" lang-en><div class="meta-chip">📞 <span>+82-64-731-1000</span></div></div>
+      </div></div>
+    </div>
+    <div class="tl-transit">
+      <div class="tl-left"></div>
+      <div class="tl-connector"><div class="tl-dot" style="background:transparent;border:1.5px solid #C8E4DE;width:8px;height:8px;border-radius:50%"></div><div class="tl-line d1"></div></div>
+      <div class="tl-transit-body"><span class="transit-badge">🚗 <span lang-zh>約 5 分</span><span lang-en>~5 min</span></span><span class="transit-text"><span lang-zh>飯店 → Cafe Ocean</span><span lang-en>Hotel → Cafe Ocean</span></span></div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-time">16:00</div></div>
+      <div class="tl-connector"><div class="tl-dot" style="background:var(--d1)"></div><div class="tl-line d1"></div></div>
+      <div class="tl-content"><div class="card">
+        <div class="tags"><span class="tag t-cafe"><span lang-zh>咖啡</span><span lang-en>Café</span></span></div>
+        <div class="card-row"><div class="card-icon">☕</div><div class="card-name"><a href="https://maps.google.com/?cid=9761663207020700607" target="_blank">Cafe Ocean</a></div></div>
+        <div class="card-desc"><span lang-zh>中文觀光區旁面海咖啡廳，抹茶熔岩蛋糕必點，可選露台座位吹海風放鬆。</span><span lang-en>An ocean-view café next to Jungmun resort area. The matcha lava cake is a must — grab a terrace seat and let the sea breeze in.</span></div>
+        <div class="card-meta" lang-zh><div class="meta-chip">🕘 <span>09:00–19:00</span></div></div>
+        <div class="card-meta" lang-en><div class="meta-chip">🕘 <span>09:00–19:00</span></div></div>
+      </div></div>
+    </div>
+    <div class="tl-transit">
+      <div class="tl-left"></div>
+      <div class="tl-connector"><div class="tl-dot" style="background:transparent;border:1.5px solid #C8E4DE;width:8px;height:8px;border-radius:50%"></div><div class="tl-line d1"></div></div>
+      <div class="tl-transit-body"><span class="transit-badge">🚶 <span lang-zh>約 5 分</span><span lang-en>~5 min walk</span></span><span class="transit-text"><span lang-zh>步行至中文色達爾海灘</span><span lang-en>Walk to Jungmun Saekdal Beach</span></span></div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-time">17:00</div></div>
+      <div class="tl-connector"><div class="tl-dot" style="background:var(--d1)"></div><div class="tl-line d1"></div></div>
+      <div class="tl-content"><div class="card">
+        <div class="tags"><span class="tag t-nat"><span lang-zh>景觀</span><span lang-en>Scenic</span></span></div>
+        <div class="card-row"><div class="card-icon">🏖️</div><div class="card-name"><a href="https://maps.google.com/?cid=4146548267837487789" target="_blank"><span lang-zh>中文色達爾海灘</span><span lang-en>Jungmun Saekdal Beach</span></a></div></div>
+        <div class="card-desc"><span lang-zh>飯店旁黃金沙灘，傍晚光線最美，吹海風散步放鬆，完全免費。</span><span lang-en>A golden sandy beach steps from the hotel. The evening light is gorgeous — a perfect wind-down stroll. Completely free.</span></div>
+        <div class="card-meta" lang-zh><div class="meta-chip">⏱ <span>全天開放・免費</span></div></div>
+        <div class="card-meta" lang-en><div class="meta-chip">⏱ <span>Open 24h · Free</span></div></div>
+      </div></div>
+    </div>
+    <div class="tl-transit">
+      <div class="tl-left"></div>
+      <div class="tl-connector"><div class="tl-dot" style="background:transparent;border:1.5px solid #C8E4DE;width:8px;height:8px;border-radius:50%"></div><div class="tl-line d1"></div></div>
+      <div class="tl-transit-body"><span class="transit-badge">🚗 <span lang-zh>約 10 分</span><span lang-en>~10 min</span></span><span class="transit-text"><span lang-zh>海灘 → 갈치왕</span><span lang-en>Beach → 갈치왕</span></span></div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-time">19:00</div></div>
+      <div class="tl-connector"><div class="tl-dot" style="background:var(--d1)"></div></div>
+      <div class="tl-content"><div class="card">
+        <div class="tags"><span class="tag t-food"><span lang-zh>晚餐</span><span lang-en>Dinner</span></span></div>
+        <div class="card-row"><div class="card-icon">🐟</div><div class="card-name"><a href="https://maps.google.com/?cid=11964544740304778334" target="_blank"><span lang-zh>白帶魚王 갈치왕 中文店</span><span lang-en>Galchiwang 갈치왕 (Hairtail Fish)</span></a></div></div>
+        <div class="card-desc"><span lang-zh>中文觀光區旁，烤白帶魚 + 紅燒白帶魚套餐，評分 4.6，配菜豐盛。</span><span lang-en>Near Jungmun resort. Grilled + braised hairtail set, rating 4.6, with generous side dishes.</span></div>
+        <div class="card-meta" lang-zh><div class="meta-chip">🕘 <span>10:30–21:30</span></div><div class="meta-chip">💰 <span>套餐約 ₩40,000–70,000</span></div></div>
+        <div class="card-meta" lang-en><div class="meta-chip">🕘 <span>10:30–21:30</span></div><div class="meta-chip">💰 <span>Set meal ~₩40,000–70,000</span></div></div>
+        <div class="alert tip"><span lang-zh>💡 白帶魚有烤（구이）和紅燒（조림）兩種，建議點套餐兩種都嚐。</span><span lang-en>💡 Hairtail comes grilled (구이) and braised (조림) — order the set to try both.</span></div>
+      </div></div>
+    </div>
+
+  </div>
+</div><!-- /day1 -->
+
+
+<!-- ════ DAY 2 ════ -->
+<div class="day-section" id="day2">
+  <div class="day-header">
+    <span class="day-badge-large d2">Day 02</span>
+    <span class="day-title-text">
+      <span lang-zh>南部 → 西北涯月 → 濟州市區</span>
+      <span lang-en>South → Northwest Aewol → Jeju City</span>
+    </span>
+    <span class="day-date-text"><span lang-zh>6/6 週五</span><span lang-en>6/6 Fri</span></span>
+    <span class="day-hotel-pill d1">🏨 Lotte Hotel</span>
+  </div>
+  <div class="day-divider d2"></div>
+
+  <div class="gmap-wrap">
+    <div id="gmap-canvas-d2" class="gmap-canvas"></div>
+    <div id="gmap-legend-d2" class="gmap-legend"></div>
+  </div>
+
+  <div class="route-note">
+    <span class="route-note-icon">⚡</span>
+    <span lang-zh>今天動線：南部飯店 → 西北涯月（Haejigae 早餐・刀魚館午餐・協財海灘）→ 北上濟州市區（Olive Young・東門市場）。晚上搭 Uber 回南部 Lotte Hotel。</span>
+    <span lang-en>Today's route: Southern hotel → NW Aewol (Haejigae breakfast · Galchigwan lunch · Hyeopjae Beach) → North to Jeju City (Olive Young · Dongmun Market). Uber back to Lotte Hotel at night.</span>
+  </div>
+
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-time">08:30</div></div>
+      <div class="tl-connector"><div class="tl-dot" style="background:#3A6B8A"></div><div class="tl-line d2"></div></div>
+      <div class="tl-content"><div class="card">
+        <div class="card-row"><div class="card-icon">🚗</div><div class="card-name"><span lang-zh>從飯店出發</span><span lang-en>Depart from Hotel</span></div></div>
+        <div class="card-desc"><span lang-zh>今晚仍住 Lotte Hotel，輕裝前往涯月。</span><span lang-en>Staying at Lotte Hotel tonight — travel light to Aewol.</span></div>
+      </div></div>
+    </div>
+    <div class="tl-transit">
+      <div class="tl-left"></div>
+      <div class="tl-connector"><div class="tl-dot" style="background:transparent;border:1.5px solid var(--d2-light);width:8px;height:8px;border-radius:50%"></div><div class="tl-line d2"></div></div>
+      <div class="tl-transit-body"><span class="transit-badge">🚗 <span lang-zh>約 38 分</span><span lang-en>~38 min</span></span><span class="transit-text"><span lang-zh>飯店 → Haejigae Cafe（涯月）</span><span lang-en>Hotel → Haejigae Cafe (Aewol)</span></span></div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-time">09:30</div></div>
+      <div class="tl-connector"><div class="tl-dot" style="background:var(--d2)"></div><div class="tl-line d2"></div></div>
+      <div class="tl-content"><div class="card">
+        <div class="tags"><span class="tag t-cafe"><span lang-zh>早餐</span><span lang-en>Breakfast</span></span></div>
+        <div class="card-row"><div class="card-icon">🌊</div><div class="card-name"><a href="https://maps.google.com/?cid=15827366041624268577" target="_blank">★ Haejigae Cafe 해지개</a></div></div>
+        <div class="card-desc"><span lang-zh>評分 4.8，涯月海岸最推薦咖啡廳，面海露台、烘焙點心美味，早晨人少最舒服。停車位有限，建議叫 Uber 前往。</span><span lang-en>Rating 4.8 — Aewol's top café. Sea-view terrace, great pastries, and blissfully quiet in the morning. Limited parking; Uber recommended.</span></div>
+        <div class="card-meta" lang-zh><div class="meta-chip">🕘 <span>09:00–21:00</span></div><div class="meta-chip">💡 <span>每人需點一杯飲品</span></div></div>
+        <div class="card-meta" lang-en><div class="meta-chip">🕘 <span>09:00–21:00</span></div><div class="meta-chip">💡 <span>Minimum one drink per person</span></div></div>
+        <div class="alert warn"><span lang-zh>⚠️ 2026 年初附近有施工，步行路段請注意安全。</span><span lang-en>⚠️ Construction nearby as of early 2026 — watch your step on the coastal walkway.</span></div>
+      </div></div>
+    </div>
+    <div class="tl-transit">
+      <div class="tl-left"></div>
+      <div class="tl-connector"><div class="tl-dot" style="background:transparent;border:1.5px solid var(--d2-light);width:8px;height:8px;border-radius:50%"></div><div class="tl-line d2"></div></div>
+      <div class="tl-transit-body"><span class="transit-badge">🚗 <span lang-zh>約 5 分</span><span lang-en>~5 min</span></span><span class="transit-text"><span lang-zh>Haejigae → 刀魚館</span><span lang-en>Haejigae → Galchigwan</span></span></div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-time">13:00</div></div>
+      <div class="tl-connector"><div class="tl-dot" style="background:var(--d2)"></div><div class="tl-line d2"></div></div>
+      <div class="tl-content"><div class="card">
+        <div class="tags"><span class="tag t-food"><span lang-zh>午餐</span><span lang-en>Lunch</span></span></div>
+        <div class="card-row"><div class="card-icon">🐟</div><div class="card-name"><a href="https://maps.google.com/?cid=7379870826846497417" target="_blank">갈치관 Galchigwan 애월해안도로점</a></div></div>
+        <div class="card-desc"><span lang-zh>涯月海岸公路景觀餐廳，整條白帶魚套餐，含烤白帶魚、燉鮑魚、海鮮湯。評分 4.6，海景極美。</span><span lang-en>Scenic coastal restaurant on Aewol's shore road. Whole hairtail set includes grilled fish, braised abalone, and seafood soup. Rating 4.6; stunning sea views.</span></div>
+        <div class="card-meta" lang-zh><div class="meta-chip">🕘 <span>09:00–21:00</span></div><div class="meta-chip">💰 <span>套餐約 ₩65,000–160,000</span></div></div>
+        <div class="card-meta" lang-en><div class="meta-chip">🕘 <span>09:00–21:00</span></div><div class="meta-chip">💰 <span>Set ~₩65,000–160,000</span></div></div>
+        <div class="alert tip"><span lang-zh>💡 請求靠窗海景座位：창가 자리 주세요</span><span lang-en>💡 Ask for a window seat: 창가 자리 주세요 (chahng-ga jali juseyo)</span></div>
+      </div></div>
+    </div>
+    <div class="tl-transit">
+      <div class="tl-left"></div>
+      <div class="tl-connector"><div class="tl-dot" style="background:transparent;border:1.5px solid var(--d2-light);width:8px;height:8px;border-radius:50%"></div><div class="tl-line d2"></div></div>
+      <div class="tl-transit-body"><span class="transit-badge">🚗 <span lang-zh>約 15 分</span><span lang-en>~15 min</span></span><span class="transit-text"><span lang-zh>涯月 → 協財海灘</span><span lang-en>Aewol → Hyeopjae Beach</span></span></div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-time">14:30</div></div>
+      <div class="tl-connector"><div class="tl-dot" style="background:var(--d2)"></div><div class="tl-line d2"></div></div>
+      <div class="tl-content"><div class="card">
+        <div class="tags"><span class="tag t-nat"><span lang-zh>景觀</span><span lang-en>Scenic</span></span></div>
+        <div class="card-row"><div class="card-icon">🏖️</div><div class="card-name"><a href="https://maps.google.com/?cid=13555494773625553152" target="_blank"><span lang-zh>協財海灘</span><span lang-en>Hyeopjae Beach 협재해변</span></a></div></div>
+        <div class="card-desc"><span lang-zh>白沙藍海，評分 4.6，濟州西部最美海灘，沙質細軟，可沿海岸線散步約 45 分鐘。</span><span lang-en>White sand and turquoise water — rating 4.6 and one of Jeju's finest western beaches. Stroll the shoreline for ~45 min.</span></div>
+        <div class="card-meta" lang-zh><div class="meta-chip">⏱ <span>全天開放・免費</span></div></div>
+        <div class="card-meta" lang-en><div class="meta-chip">⏱ <span>Open 24h · Free</span></div></div>
+      </div></div>
+    </div>
+    <div class="tl-transit">
+      <div class="tl-left"></div>
+      <div class="tl-connector"><div class="tl-dot" style="background:transparent;border:1.5px solid var(--d2-light);width:8px;height:8px;border-radius:50%"></div><div class="tl-line d2"></div></div>
+      <div class="tl-transit-body"><span class="transit-badge">🚗 <span lang-zh>約 35 分</span><span lang-en>~35 min</span></span><span class="transit-text"><span lang-zh>協財海灘 → Olive Young 濟州市區</span><span lang-en>Hyeopjae Beach → Olive Young Jeju City</span></span></div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-time">16:00</div></div>
+      <div class="tl-connector"><div class="tl-dot" style="background:var(--d2)"></div><div class="tl-line d2"></div></div>
+      <div class="tl-content"><div class="card">
+        <div class="tags"><span class="tag t-shop"><span lang-zh>購物</span><span lang-en>Shopping</span></span></div>
+        <div class="card-row"><div class="card-icon">🛍️</div><div class="card-name"><a href="https://maps.google.com/?cid=13240511877738341212" target="_blank">Olive Young 제주제원점 (Singwang-ro)</a></div></div>
+        <div class="card-desc"><span lang-zh>濟州市區評分最高分店（4.4），品項最齊全。帶護照可辦理當場退稅，預留 1–1.5 小時。</span><span lang-en>Jeju City's top-rated Olive Young (4.4) — widest selection. Bring your passport for on-the-spot tax refund. Allow 1–1.5 hrs.</span></div>
+        <div class="card-meta" lang-zh><div class="meta-chip">🕘 <span>11:00–23:00（每日）</span></div><div class="meta-chip">💡 <span>護照退稅：單次 ₩30,000 以上</span></div></div>
+        <div class="card-meta" lang-en><div class="meta-chip">🕘 <span>11:00–23:00 (daily)</span></div><div class="meta-chip">💡 <span>Tax refund available: min. ₩30,000</span></div></div>
+      </div></div>
+    </div>
+    <div class="tl-transit">
+      <div class="tl-left"></div>
+      <div class="tl-connector"><div class="tl-dot" style="background:transparent;border:1.5px solid var(--d2-light);width:8px;height:8px;border-radius:50%"></div><div class="tl-line d2"></div></div>
+      <div class="tl-transit-body"><span class="transit-badge">🚗 <span lang-zh>約 10 分</span><span lang-en>~10 min</span></span><span class="transit-text"><span lang-zh>Olive Young → 東門傳統市場</span><span lang-en>Olive Young → Dongmun Traditional Market</span></span></div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-time">17:30</div></div>
+      <div class="tl-connector"><div class="tl-dot" style="background:var(--d2)"></div><div class="tl-line d2"></div></div>
+      <div class="tl-content"><div class="card">
+        <div class="tags"><span class="tag t-shop"><span lang-zh>市場</span><span lang-en>Market</span></span><span class="tag t-food"><span lang-zh>小吃</span><span lang-en>Street Food</span></span></div>
+        <div class="card-row"><div class="card-icon">🏪</div><div class="card-name"><a href="https://maps.google.com/?cid=11617622388478099449" target="_blank"><span lang-zh>東門傳統市場 동문재래시장</span><span lang-en>Dongmun Traditional Market 동문재래시장</span></a></div></div>
+        <div class="card-desc"><span lang-zh>傍晚最熱鬧！逛小吃、買濟州伴手禮（橘子零食、黑豬肉香腸），必嚐熱打糕（호떡）和鮮榨橘子汁。</span><span lang-en>Liveliest in the evening! Browse Jeju souvenirs (tangerine snacks, black pork sausage) and must-try hotteok pancakes with freshly squeezed tangerine juice.</span></div>
+        <div class="card-meta" lang-zh><div class="meta-chip">🕘 <span>08:00–21:00</span></div><div class="meta-chip">💡 <span>下午 4–7 點最熱鬧</span></div></div>
+        <div class="card-meta" lang-en><div class="meta-chip">🕘 <span>08:00–21:00</span></div><div class="meta-chip">💡 <span>Busiest 4–7 PM</span></div></div>
+      </div></div>
+    </div>
+    <div class="tl-transit">
+      <div class="tl-left"></div>
+      <div class="tl-connector"><div class="tl-dot" style="background:transparent;border:1.5px solid var(--d2-light);width:8px;height:8px;border-radius:50%"></div><div class="tl-line d2"></div></div>
+      <div class="tl-transit-body"><span class="transit-badge">🚗 <span lang-zh>約 50 分</span><span lang-en>~50 min</span></span><span class="transit-text"><span lang-zh>濟州市區 → Lotte Hotel（回南部）</span><span lang-en>Jeju City → Lotte Hotel (back south)</span></span></div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-time">20:00</div></div>
+      <div class="tl-connector"><div class="tl-dot" style="background:var(--d2)"></div></div>
+      <div class="tl-content"><div class="card">
+        <div class="tags"><span class="tag t-food"><span lang-zh>晚餐</span><span lang-en>Dinner</span></span></div>
+        <div class="card-row"><div class="card-icon">🍽️</div><div class="card-name"><span lang-zh>飯店附近晚餐（自由選擇）</span><span lang-en>Dinner near Hotel (free choice)</span></div></div>
+        <div class="card-desc"><span lang-zh>回到南部後輕鬆吃，可選飯店內 Island Kitchen 或附近韓食。今晚早點休息，明天 Spa 日。</span><span lang-en>Keep it easy — try the hotel's Island Kitchen or a nearby Korean restaurant. Rest up: tomorrow is Spa day.</span></div>
+      </div></div>
+    </div>
+
+  </div>
+</div><!-- /day2 -->
+
+
+<!-- ════ DAY 3 ════ -->
+<div class="day-section" id="day3">
+  <div class="day-header">
+    <span class="day-badge-large d3">Day 03</span>
+    <span class="day-title-text">
+      <span lang-zh>南部 Spa → 西歸浦景點 → 北上濟州市區</span>
+      <span lang-en>South Spa → Seogwipo Sights → Head North to Jeju City</span>
+    </span>
+    <span class="day-date-text"><span lang-zh>6/7 週六</span><span lang-en>6/7 Sat</span></span>
+    <span class="day-hotel-pill d3">🏙️ <span lang-zh>濟州市區飯店</span><span lang-en>Jeju City Hotel</span></span>
+  </div>
+  <div class="day-divider d3"></div>
+
+  <div class="gmap-wrap">
+    <div id="gmap-canvas-d3" class="gmap-canvas"></div>
+    <div id="gmap-legend-d3" class="gmap-legend"></div>
+  </div>
+
+  <div class="route-note">
+    <span class="route-note-icon">⚡</span>
+    <span lang-zh>今天動線：南部 Spa → 西歸浦市區景點 → 北上濟州市區 check-in → 韓牛晚餐 → 貓咪酒吧。行李先寄存 Lotte Hotel，北上時順路取。</span>
+    <span lang-en>Today's route: South Spa → Seogwipo sights → North to Jeju City check-in → Hanwoo dinner → Cat bar. Leave luggage at Lotte Hotel; collect it on the way north.</span>
+  </div>
+
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-time">09:00</div></div>
+      <div class="tl-connector"><div class="tl-dot" style="background:var(--d3)"></div><div class="tl-line d3"></div></div>
+      <div class="tl-content"><div class="card">
+        <div class="tags"><span class="tag t-spa">Spa</span></div>
+        <div class="card-row"><div class="card-icon">💆</div><div class="card-name"><a href="https://maps.google.com/?cid=2108551354255263169" target="_blank">★ Lotte Hotel Jeju — Spa</a></div></div>
+        <div class="card-desc"><span lang-zh>退房前最後享受 Spa，約 1.5–2 小時。行李先向前台辦理寄存，待下午取行李再北上。</span><span lang-en>One final indulgence before checkout — 1.5–2 hrs. Store luggage at the front desk; pick it up on the way north this afternoon.</span></div>
+        <div class="card-meta" lang-zh><div class="meta-chip">📞 <span>+82-64-731-1000</span></div></div>
+        <div class="card-meta" lang-en><div class="meta-chip">📞 <span>+82-64-731-1000</span></div></div>
+        <div class="reserve-box"><span lang-zh>📅 <strong>需提前預約</strong> ── 建議入住當天（6/6）就請飯店安排 6/7 早上時段，週六容易額滿。</span><span lang-en>📅 <strong>Book in advance</strong> — ask the hotel on 6/6 to reserve your Saturday morning slot; it fills up fast.</span> <a href="https://www.lottehotel.com/jeju-hotel/ko" target="_blank" class="res-link"><span lang-zh>飯店官網 →</span><span lang-en>Hotel website →</span></a></div>
+      </div></div>
+    </div>
+    <div class="tl-transit">
+      <div class="tl-left"></div>
+      <div class="tl-connector"><div class="tl-dot" style="background:transparent;border:1.5px solid var(--d3-light);width:8px;height:8px;border-radius:50%"></div><div class="tl-line d3"></div></div>
+      <div class="tl-transit-body"><span class="transit-badge">🚗 <span lang-zh>約 14 分</span><span lang-en>~14 min</span></span><span class="transit-text"><span lang-zh>飯店 → 三姓穴海鮮湯</span><span lang-en>Hotel → Samsunghyeol Seafood Hot Pot</span></span></div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-time">12:00</div></div>
+      <div class="tl-connector"><div class="tl-dot" style="background:var(--d3)"></div><div class="tl-line d3"></div></div>
+      <div class="tl-content"><div class="card">
+        <div class="tags"><span class="tag t-food"><span lang-zh>午餐</span><span lang-en>Lunch</span></span></div>
+        <div class="card-row"><div class="card-icon">🦞</div><div class="card-name"><a href="https://maps.google.com/?cid=6577929983194131252" target="_blank"><span lang-zh>三姓穴海鮮湯 삼성혈해물탕</span><span lang-en>Samsunghyeol Seafood Hot Pot 삼성혈해물탕</span></a></div></div>
+        <div class="card-desc"><span lang-zh>Spa 後大吃一頓！鮑魚、龍蝦、扇貝等豪華海鮮火鍋。最後加麵條（라면 사리）必點。</span><span lang-en>Post-Spa feast — abalone, lobster, scallops and more in a rich seafood hot pot. Don't skip adding ramen noodles (라면 사리) at the end.</span></div>
+        <div class="card-meta" lang-zh><div class="meta-chip">🕘 <span>10:30–21:50</span></div><div class="meta-chip">💰 <span>約 ₩80,000–120,000（兩人）</span></div></div>
+        <div class="card-meta" lang-en><div class="meta-chip">🕘 <span>10:30–21:50</span></div><div class="meta-chip">💰 <span>~₩80,000–120,000 for two</span></div></div>
+      </div></div>
+    </div>
+    <div class="tl-transit">
+      <div class="tl-left"></div>
+      <div class="tl-connector"><div class="tl-dot" style="background:transparent;border:1.5px solid var(--d3-light);width:8px;height:8px;border-radius:50%"></div><div class="tl-line d3"></div></div>
+      <div class="tl-transit-body"><span class="transit-badge">🚗 <span lang-zh>約 10 分</span><span lang-en>~10 min</span></span><span class="transit-text"><span lang-zh>西歸浦市區 → 外돌개</span><span lang-en>Seogwipo → Oedolgae Rock</span></span></div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-time">13:30</div></div>
+      <div class="tl-connector"><div class="tl-dot" style="background:var(--d3)"></div><div class="tl-line d3"></div></div>
+      <div class="tl-content"><div class="card">
+        <div class="tags"><span class="tag t-nat"><span lang-zh>景觀打卡</span><span lang-en>Photo Spot</span></span></div>
+        <div class="card-row"><div class="card-icon">🪨</div><div class="card-name"><a href="https://maps.google.com/?cid=6770736990820012950" target="_blank">★ <span lang-zh>外돌개 Oedolgae</span><span lang-en>Oedolgae Rock 외돌개</span></a></div></div>
+        <div class="card-desc"><span lang-zh>西歸浦海岸獨立玄武岩柱，平地觀景台欣賞即可，免費、無需爬山。評分 4.4，約 30–40 分鐘。往步道深處走有更好拍照角度。</span><span lang-en>A dramatic lone basalt sea stack on Seogwipo's coast — free to visit, no climbing needed. Rating 4.4. Walk deeper into the trail for better photo angles (~30–40 min).</span></div>
+        <div class="card-meta" lang-zh><div class="meta-chip">⏱ <span>全天開放・免費（停車 ₩2,000）</span></div></div>
+        <div class="card-meta" lang-en><div class="meta-chip">⏱ <span>Open 24h · Free (parking ₩2,000)</span></div></div>
+        <div class="alert tip"><span lang-zh>💡 第二個停車場免費，在主入口前行 50 公尺即到。</span><span lang-en>💡 Free parking lot is 50m past the paid entrance — easy to miss but worth finding.</span></div>
+      </div></div>
+    </div>
+    <div class="tl-transit">
+      <div class="tl-left"></div>
+      <div class="tl-connector"><div class="tl-dot" style="background:transparent;border:1.5px solid var(--d3-light);width:8px;height:8px;border-radius:50%"></div><div class="tl-line d3"></div></div>
+      <div class="tl-transit-body"><span class="transit-badge">🚗 <span lang-zh>約 8 分</span><span lang-en>~8 min</span></span><span class="transit-text"><span lang-zh>外돌개 → Over the Window</span><span lang-en>Oedolgae → Over the Window</span></span></div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-time">14:30</div></div>
+      <div class="tl-connector"><div class="tl-dot" style="background:var(--d3)"></div><div class="tl-line d3"></div></div>
+      <div class="tl-content"><div class="card">
+        <div class="tags"><span class="tag t-cafe"><span lang-zh>咖啡</span><span lang-en>Café</span></span></div>
+        <div class="card-row"><div class="card-icon">☕</div><div class="card-name"><a href="https://maps.google.com/?cid=9700023698490252456" target="_blank">★ Over the Window</a></div></div>
+        <div class="card-desc"><span lang-zh>評分 4.7，西歸浦市區人氣咖啡廳，二樓有海景，老闆英文流利，氛圍極佳。招牌 Crème Brûlée 必點。</span><span lang-en>Rating 4.7 — a beloved Seogwipo café with ocean views from the second floor. The English-speaking owner is wonderfully welcoming. Must-try: Crème Brûlée.</span></div>
+        <div class="card-meta" lang-zh><div class="meta-chip">🕘 <span>10:00–21:00</span></div><div class="meta-chip">💡 <span>沒有插座，以放鬆為主</span></div></div>
+        <div class="card-meta" lang-en><div class="meta-chip">🕘 <span>10:00–21:00</span></div><div class="meta-chip">💡 <span>No plugs — intentionally a relaxation space</span></div></div>
+      </div></div>
+    </div>
+    <div class="tl-transit">
+      <div class="tl-left"></div>
+      <div class="tl-connector"><div class="tl-dot" style="background:transparent;border:1.5px solid var(--d3-light);width:8px;height:8px;border-radius:50%"></div><div class="tl-line d3"></div></div>
+      <div class="tl-transit-body"><span class="transit-badge">🚗 <span lang-zh>約 5 分</span><span lang-en>~5 min</span></span><span class="transit-text"><span lang-zh>Over the Window → 小正房瀑布</span><span lang-en>Over the Window → Sojeongbang Waterfall</span></span></div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-time">16:00</div></div>
+      <div class="tl-connector"><div class="tl-dot" style="background:var(--d3)"></div><div class="tl-line d3"></div></div>
+      <div class="tl-content"><div class="card">
+        <div class="tags"><span class="tag t-nat"><span lang-zh>景觀</span><span lang-en>Scenic</span></span><span class="tag t-free"><span lang-zh>免費</span><span lang-en>Free</span></span></div>
+        <div class="card-row"><div class="card-icon">💧</div><div class="card-name"><a href="https://maps.google.com/?cid=12897226649671313832" target="_blank"><span lang-zh>小正房瀑布 Sojeongbang</span><span lang-en>Sojeongbang Waterfall 소정방폭포</span></a></div></div>
+        <div class="card-desc"><span lang-zh>免費隱藏版小瀑布，在正房瀑布停車場旁，平地即可近距離欣賞觸碰，評分 4.4，約 20 分鐘。</span><span lang-en>A hidden gem waterfall — completely free, right next to Jeongbang's parking lot. You can walk up and touch the water. Rating 4.4, about 20 min.</span></div>
+        <div class="card-meta" lang-zh><div class="meta-chip">⏱ <span>全天開放・完全免費</span></div></div>
+        <div class="card-meta" lang-en><div class="meta-chip">⏱ <span>Open 24h · Completely free</span></div></div>
+        <div class="alert tip"><span lang-zh>💡 從正房瀑布停車場步行即達，可順路看兩個景點。</span><span lang-en>💡 Accessible on foot from Jeongbang Waterfall's car park — easy to combine both in one stop.</span></div>
+      </div></div>
+    </div>
+    <div class="tl-transit">
+      <div class="tl-left"></div>
+      <div class="tl-connector"><div class="tl-dot" style="background:transparent;border:1.5px solid var(--d3-light);width:8px;height:8px;border-radius:50%"></div><div class="tl-line d3"></div></div>
+      <div class="tl-transit-body"><span class="transit-badge">🚗 <span lang-zh>約 5 分</span><span lang-en>~5 min</span></span><span class="transit-text"><span lang-zh>小正房瀑布 → 60 Beans</span><span lang-en>Sojeongbang → 60 Beans</span></span></div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-time">16:30</div></div>
+      <div class="tl-connector"><div class="tl-dot" style="background:var(--d3)"></div><div class="tl-line d3"></div></div>
+      <div class="tl-content"><div class="card">
+        <div class="tags"><span class="tag t-cafe"><span lang-zh>咖啡</span><span lang-en>Café</span></span></div>
+        <div class="card-row"><div class="card-icon">🌿</div><div class="card-name"><a href="https://maps.google.com/?cid=2151723074946878339" target="_blank">60 Beans</a></div></div>
+        <div class="card-desc"><span lang-zh>花園與海景兼具的療癒咖啡廳，評分 4.4。焦糖拿鐵必點，在這裡悠閒待到出發北上。</span><span lang-en>A healing garden-meets-ocean café, rating 4.4. The caramel latte is a standout — linger here until it's time to head north.</span></div>
+        <div class="card-meta" lang-zh><div class="meta-chip">🕘 <span>09:00–18:00</span></div></div>
+        <div class="card-meta" lang-en><div class="meta-chip">🕘 <span>09:00–18:00</span></div></div>
+      </div></div>
+    </div>
+    <div class="tl-transit">
+      <div class="tl-left"></div>
+      <div class="tl-connector"><div class="tl-dot" style="background:transparent;border:1.5px solid var(--d3-light);width:8px;height:8px;border-radius:50%"></div><div class="tl-line d3"></div></div>
+      <div class="tl-transit-body"><span class="transit-badge">🚗 <span lang-zh>約 50 分</span><span lang-en>~50 min</span></span><span class="transit-text"><span lang-zh>順路取 Lotte Hotel 行李 → 濟州市區飯店 check-in</span><span lang-en>Collect luggage at Lotte Hotel → Jeju City hotel check-in</span></span></div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-time">18:30</div></div>
+      <div class="tl-connector"><div class="tl-dot" style="background:#3A6B8A"></div><div class="tl-line d3"></div></div>
+      <div class="tl-content"><div class="card">
+        <div class="card-row"><div class="card-icon">🏙️</div><div class="card-name"><span lang-zh>濟州市區飯店 Check-in</span><span lang-en>Jeju City Hotel Check-in</span></div></div>
+        <div class="card-desc"><span lang-zh>放好行李，梳洗後出發吃晚餐。</span><span lang-en>Drop your bags, freshen up, and head out for the best dinner of the trip.</span></div>
+      </div></div>
+    </div>
+    <div class="tl-transit">
+      <div class="tl-left"></div>
+      <div class="tl-connector"><div class="tl-dot" style="background:transparent;border:1.5px solid var(--d3-light);width:8px;height:8px;border-radius:50%"></div><div class="tl-line d3"></div></div>
+      <div class="tl-transit-body"><span class="transit-badge">🚗 <span lang-zh>約 10 分</span><span lang-en>~10 min</span></span><span class="transit-text"><span lang-zh>飯店 → 韓牛 한결한우</span><span lang-en>Hotel → Hangyeol Hanwoo 한결한우</span></span></div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-time">19:30</div></div>
+      <div class="tl-connector"><div class="tl-dot" style="background:var(--d3)"></div><div class="tl-line d3"></div></div>
+      <div class="tl-content"><div class="card">
+        <div class="tags"><span class="tag t-food"><span lang-zh>晚餐</span><span lang-en>Dinner</span></span><span class="tag t-res"><span lang-zh>需訂位</span><span lang-en>Reservation Required</span></span></div>
+        <div class="card-row"><div class="card-icon">🥩</div><div class="card-name"><a href="https://maps.google.com/?cid=11913878909999974692" target="_blank">★ <span lang-zh>韓牛 한결한우</span><span lang-en>Hangyeol Hanwoo 한결한우</span></a></div></div>
+        <div class="card-desc"><span lang-zh>評分 4.9，濟州頂級韓牛餐廳，45 天熟成 T-bone，工作人員親自協助烤肉，平板點餐外國人友善。</span><span lang-en>Rating 4.9 — Jeju's finest Korean wagyu. 45-day aged T-bone, staff-assisted grilling, and a tablet ordering system that's foreigner-friendly.</span></div>
+        <div class="card-meta" lang-zh><div class="meta-chip">🕘 <span>11:30–22:30（週三 17:00 起）</span></div><div class="meta-chip">💰 <span>約 ₩60,000–80,000／600g</span></div></div>
+        <div class="card-meta" lang-en><div class="meta-chip">🕘 <span>11:30–22:30 (Wed from 17:00)</span></div><div class="meta-chip">💰 <span>~₩60,000–80,000 / 600g</span></div></div>
+        <div class="reserve-box"><span lang-zh>📅 <strong>強烈建議提前訂位</strong> ── 週六晚上非常搶手，建議至少提前 2–3 天預約。</span><span lang-en>📅 <strong>Strongly recommend booking ahead</strong> — Saturday nights fill up fast. Reserve at least 2–3 days in advance.</span> <a href="https://m.place.naver.com/restaurant/1118694604" target="_blank" class="res-link">Naver Map →</a></div>
+      </div></div>
+    </div>
+    <div class="tl-transit">
+      <div class="tl-left"></div>
+      <div class="tl-connector"><div class="tl-dot" style="background:transparent;border:1.5px solid var(--d3-light);width:8px;height:8px;border-radius:50%"></div><div class="tl-line d3"></div></div>
+      <div class="tl-transit-body"><span class="transit-badge">🚶 <span lang-zh>約 7 分</span><span lang-en>~7 min walk</span></span><span class="transit-text"><span lang-zh>韓牛 → 貓咪酒吧 묘함</span><span lang-en>Hanwoo → Myoham Cat Bar 묘함</span></span></div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-time">21:30</div></div>
+      <div class="tl-connector"><div class="tl-dot" style="background:var(--d3)"></div></div>
+      <div class="tl-content"><div class="card">
+        <div class="tags"><span class="tag t-bar"><span lang-zh>酒吧</span><span lang-en>Bar</span></span></div>
+        <div class="card-row"><div class="card-icon">🐱</div><div class="card-name"><a href="https://maps.google.com/?cid=18195178006824587030" target="_blank">★ <span lang-zh>貓咪酒吧 묘함 Myoham</span><span lang-en>Myoham Cat Bar 묘함</span></a></div></div>
+        <div class="card-desc"><span lang-zh>調酒評分 4.9，老闆英文流利，兩隻可愛貓咪隨時陪伴，調酒種類創意十足。旅行最棒的夜晚收尾。</span><span lang-en>Cocktail rating 4.9. The English-speaking owner crafts imaginative drinks while two very relaxed cats keep you company. The perfect final night.</span></div>
+        <div class="card-meta" lang-zh><div class="meta-chip">🕘 <span>20:00–05:00（每日）</span></div><div class="meta-chip">💡 <span>週六晚上建議早點到</span></div></div>
+        <div class="card-meta" lang-en><div class="meta-chip">🕘 <span>20:00–05:00 (daily)</span></div><div class="meta-chip">💡 <span>Arrive early on Saturday nights</span></div></div>
+      </div></div>
+    </div>
+
+  </div>
+</div><!-- /day3 -->
+
+
+<!-- ════ DAY 4 ════ -->
+<div class="day-section" id="day4">
+  <div class="day-header">
+    <span class="day-badge-large d4">Day 04</span>
+    <span class="day-title-text">
+      <span lang-zh>早餐 · 退房 · 接送機</span>
+      <span lang-en>Breakfast · Check-out · Airport Transfer</span>
+    </span>
+    <span class="day-date-text"><span lang-zh>6/8 週日</span><span lang-en>6/8 Sun</span></span>
+    <span class="day-hotel-pill d4">✈️ <span lang-zh>離島日</span><span lang-en>Departure Day</span></span>
+  </div>
+  <div class="day-divider d4"></div>
+
+  <div class="gmap-wrap">
+    <div id="gmap-canvas-d4" class="gmap-canvas"></div>
+    <div id="gmap-legend-d4" class="gmap-legend"></div>
+  </div>
+
+  <div class="route-note">
+    <span class="route-note-icon">⚡</span>
+    <span lang-zh>今天最輕鬆！濟州市區到機場僅約 15 分鐘，比從南部 Lotte Hotel 出發省了 23 分鐘，可以多睡一會兒。</span>
+    <span lang-en>Easiest day! Jeju City to the airport is only ~15 min — 23 minutes less than driving from Lotte Hotel. You've earned that extra sleep.</span>
+  </div>
+
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-time">07:00</div></div>
+      <div class="tl-connector"><div class="tl-dot" style="background:var(--d4)"></div><div class="tl-line d4"></div></div>
+      <div class="tl-content"><div class="card">
+        <div class="tags"><span class="tag t-food"><span lang-zh>早餐</span><span lang-en>Breakfast</span></span></div>
+        <div class="card-row"><div class="card-icon">🍳</div><div class="card-name"><span lang-zh>飯店早餐 · 退房</span><span lang-en>Hotel Breakfast · Check-out</span></div></div>
+        <div class="card-desc"><span lang-zh>輕鬆用完早餐，辦理退房，行李整理上車。</span><span lang-en>Enjoy a leisurely last breakfast, check out, and load up the car.</span></div>
+      </div></div>
+    </div>
+    <div class="tl-transit">
+      <div class="tl-left"></div>
+      <div class="tl-connector"><div class="tl-dot" style="background:transparent;border:1.5px solid var(--d4-light);width:8px;height:8px;border-radius:50%"></div><div class="tl-line d4"></div></div>
+      <div class="tl-transit-body"><span class="transit-badge">🚗 <span lang-zh>約 15 分</span><span lang-en>~15 min</span></span><span class="transit-text"><span lang-zh>濟州市區飯店 → 濟州機場（接送機服務）</span><span lang-en>Jeju City Hotel → Jeju Airport (airport transfer)</span></span></div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-time">08:00</div></div>
+      <div class="tl-connector"><div class="tl-dot" style="background:#C04040"></div><div class="tl-line d4"></div></div>
+      <div class="tl-content"><div class="card">
+        <div class="tags"><span class="tag t-warn"><span lang-zh>時間關鍵</span><span lang-en>Time Critical</span></span></div>
+        <div class="card-row"><div class="card-icon">⚑</div><div class="card-name"><span lang-zh>最晚出發時間</span><span lang-en>Latest Departure Time</span></div></div>
+        <div class="card-desc"><span lang-zh>08:00 出發，08:20 左右抵達機場，09:00 截止時間前有充裕時間辦理登機。</span><span lang-en>Depart at 08:00, arrive at the airport by ~08:20, leaving comfortable time before the 09:00 check-in deadline.</span></div>
+        <div class="alert warn"><span lang-zh>⚠️ 請提前確認接送機服務的接送時間，建議預留 10–15 分鐘等待緩衝。</span><span lang-en>⚠️ Confirm your transfer pickup time in advance and allow 10–15 min buffer for waiting.</span></div>
+      </div></div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-time">09:00</div></div>
+      <div class="tl-connector"><div class="tl-dot" style="background:var(--d4)"></div></div>
+      <div class="tl-content"><div class="card">
+        <div class="card-row"><div class="card-icon">✈️</div><div class="card-name"><span lang-zh>濟州國際機場 · 辦理登機</span><span lang-en">Jeju International Airport · Board</span></div></div>
+        <div class="card-desc"><span lang-zh>帶著滿滿的放鬆感與戰利品，平安回台灣！</span><span lang-en>Head home with a relaxed mind, glowing skin, and bags full of Olive Young hauls. Safe travels! 🙏</span></div>
+      </div></div>
+    </div>
+
+  </div>
+</div><!-- /day4 -->
+
+</main>
+
+<footer>
+  <span lang-zh>濟州島四日行程 2026.06.05–06.08 &nbsp;·&nbsp; 所有時間為參考值，實際交通以當日路況為準</span>
+  <span lang-en>Jeju 4-Day Itinerary 2026.06.05–06.08 &nbsp;·&nbsp; All times are estimates; actual travel may vary by traffic conditions</span>
+</footer>
+
+<style>
+/* ── GOOGLE MAP CONTAINERS ── */
+.gmap-wrap {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  margin-bottom: 20px;
+  box-shadow: 0 2px 12px rgba(44,110,106,0.06);
+}
+.gmap-canvas {
+  width: 100%;
+  height: 280px;
+}
+.gmap-legend {
+  background: white;
+  border-top: 1px solid var(--border);
+  padding: 10px 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.gmap-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  color: var(--text-mid);
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 4px;
+  transition: background 0.15s;
+}
+.gmap-legend-item:hover { background: var(--sky); }
+.legend-num {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 16px; height: 16px; border-radius: 50%;
+  font-size: 9px; font-weight: 700; color: white; flex-shrink: 0;
+}
+@media (max-width: 600px) { .gmap-canvas { height: 220px; } }
+</style>
+
+<!-- Google Maps JS API -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxNZy-Tlh7NMJB6MstbDeeHnjDV7ift08&callback=initMaps" async defer></script>
+
+<script>
+/* ── PLACE DATA ── */
+const DAYS = {
+  d1: {
+    color: '#4A9B8A',
+    center: { lat: 33.28, lng: 126.36 },
+    zoom: 10,
+    places: [
+      { zh:"O'sulloc 茶博物館", en:"O'sulloc Tea Museum",       icon:'🍵', type_zh:'茶館・伴手禮',   type_en:'Tea Museum',          hours:'09:00–18:00', url:'https://maps.google.com/?cid=13305624007371115217', lat:33.3059, lng:126.2894 },
+      { zh:'山茶花丘',          en:'Camellia Hill',              icon:'🌺', type_zh:'植物園・午餐',   type_en:'Botanical Garden',    hours:'08:30–18:00', url:'https://maps.google.com/?cid=16892243613461625135', lat:33.2898, lng:126.3683 },
+      { zh:'Lotte Hotel Jeju', en:'Lotte Hotel Jeju',           icon:'🏨', type_zh:'飯店 Check-in', type_en:'Hotel Check-in',      hours:'',            url:'https://maps.google.com/?cid=2108551354255263169', lat:33.2484, lng:126.4106 },
+      { zh:'Cafe Ocean',       en:'Cafe Ocean',                 icon:'☕', type_zh:'海景咖啡',       type_en:'Ocean View Café',     hours:'09:00–19:00', url:'https://maps.google.com/?cid=9761663207020700607', lat:33.2459, lng:126.4131 },
+      { zh:'中文色達爾海灘',    en:'Jungmun Beach',              icon:'🏖️', type_zh:'海灘散步',       type_en:'Beach Walk',          hours:'全天・Free',  url:'https://maps.google.com/?cid=4146548267837487789', lat:33.2452, lng:126.4112 },
+      { zh:'白帶魚王 갈치왕',   en:'Galchiwang 갈치왕',          icon:'🐟', type_zh:'晚餐',           type_en:'Dinner',              hours:'10:30–21:30', url:'https://maps.google.com/?cid=11964544740304778334', lat:33.2646, lng:126.3908 },
+    ]
+  },
+  d2: {
+    color: '#5B8DC2',
+    center: { lat: 33.44, lng: 126.40 },
+    zoom: 10,
+    places: [
+      { zh:'Haejigae Cafe 해지개', en:'Haejigae Cafe 해지개',   icon:'🌊', type_zh:'早餐・海景咖啡', type_en:'Breakfast Café',      hours:'09:00–21:00', url:'https://maps.google.com/?cid=15827366041624268577', lat:33.4642, lng:126.3090 },
+      { zh:'刀魚館 갈치관',        en:'Galchigwan 갈치관',       icon:'🐟', type_zh:'午餐・白帶魚',   type_en:'Lunch – Hairtail',    hours:'09:00–21:00', url:'https://maps.google.com/?cid=7379870826846497417',  lat:33.4820, lng:126.3752 },
+      { zh:'協財海灘',             en:'Hyeopjae Beach',          icon:'🏖️', type_zh:'白沙藍海',       type_en:'Beach',               hours:'全天・Free',  url:'https://maps.google.com/?cid=13555494773625553152', lat:33.3943, lng:126.2399 },
+      { zh:'Olive Young',          en:'Olive Young',             icon:'🛍️', type_zh:'購物・退稅',     type_en:'Shopping',            hours:'11:00–23:00', url:'https://maps.google.com/?cid=13240511877738341212', lat:33.4870, lng:126.4903 },
+      { zh:'東門傳統市場',         en:'Dongmun Market',          icon:'🏪', type_zh:'市場・小吃',     type_en:'Traditional Market',  hours:'08:00–21:00', url:'https://maps.google.com/?cid=11617622388478099449', lat:33.5115, lng:126.5263 },
+    ]
+  },
+  d3: {
+    color: '#9B6BBF',
+    center: { lat: 33.32, lng: 126.52 },
+    zoom: 10,
+    places: [
+      { zh:'Lotte Hotel Spa',  en:'Lotte Hotel Spa',            icon:'💆', type_zh:'Spa 放鬆',       type_en:'Spa',                 hours:'需提前預約',  url:'https://maps.google.com/?cid=2108551354255263169', lat:33.2484, lng:126.4106 },
+      { zh:'三姓穴海鮮湯',      en:'Samsunghyeol Hot Pot',       icon:'🦞', type_zh:'午餐・海鮮火鍋', type_en:'Lunch – Seafood',     hours:'10:30–21:50', url:'https://maps.google.com/?cid=6577929983194131252', lat:33.2488, lng:126.5143 },
+      { zh:'外돌개 Oedolgae',   en:'Oedolgae Rock',              icon:'🪨', type_zh:'海岸景觀',       type_en:'Scenic Rock',         hours:'全天・Free',  url:'https://maps.google.com/?cid=6770736990820012950', lat:33.2391, lng:126.5448 },
+      { zh:'Over the Window',   en:'Over the Window',            icon:'☕', type_zh:'海景咖啡',       type_en:'Ocean View Café',     hours:'10:00–21:00', url:'https://maps.google.com/?cid=9700023698490252456', lat:33.2452, lng:126.5614 },
+      { zh:'小正房瀑布',        en:'Sojeongbang Falls',           icon:'💧', type_zh:'免費瀑布',       type_en:'Waterfall – Free',    hours:'全天・Free',  url:'https://maps.google.com/?cid=12897226649671313832', lat:33.2450, lng:126.5778 },
+      { zh:'60 Beans',          en:'60 Beans',                   icon:'🌿', type_zh:'花園咖啡',       type_en:'Garden Café',         hours:'09:00–18:00', url:'https://maps.google.com/?cid=2151723074946878339', lat:33.2415, lng:126.5367 },
+      { zh:'韓牛 한결한우',      en:'Hangyeol Hanwoo',            icon:'🥩', type_zh:'晚餐・韓牛烤肉', type_en:'Dinner – Wagyu BBQ', hours:'11:30–22:30', url:'https://maps.google.com/?cid=11913878909999974692', lat:33.4878, lng:126.4877 },
+      { zh:'貓咪酒吧 묘함',      en:'Myoham Cat Bar',             icon:'🐱', type_zh:'調酒・酒吧',     type_en:'Cocktail Bar',        hours:'20:00–05:00', url:'https://maps.google.com/?cid=18195178006824587030', lat:33.4850, lng:126.4870 },
+    ]
+  },
+  d4: {
+    color: '#C27A4A',
+    center: { lat: 33.502, lng: 126.510 },
+    zoom: 13,
+    places: [
+      { zh:'濟州市區飯店',   en:'Jeju City Hotel',              icon:'🏙️', type_zh:'早餐・退房',     type_en:'Breakfast · Check-out', hours:'',           url:'https://maps.google.com/maps?q=Jeju+City', lat:33.4996, lng:126.5312 },
+      { zh:'濟州國際機場',   en:'Jeju International Airport',   icon:'✈️', type_zh:'登機・返台',     type_en:'Departure',             hours:'09:00 截止', url:'https://maps.google.com/?q=Jeju+Airport', lat:33.5113, lng:126.4930 },
+    ]
+  }
+};
+
+/* ── MAP INSTANCES & MARKERS ── */
+const mapInstances = {};
+const infoWindows = {};
+
+function makeMarkerIcon(color, label) {
+  return {
+    path: google.maps.SymbolPath.CIRCLE,
+    fillColor: color,
+    fillOpacity: 1,
+    strokeColor: '#ffffff',
+    strokeWeight: 2,
+    scale: 14,
+    labelOrigin: new google.maps.Point(0, 0)
+  };
+}
+
+function initMaps() {
+  const isEn = document.body.classList.contains('en');
+
+  Object.entries(DAYS).forEach(([dayId, day]) => {
+    const canvasId = 'gmap-canvas-' + dayId;
+    const legendId = 'gmap-legend-' + dayId;
+    const canvas = document.getElementById(canvasId);
+    const legendEl = document.getElementById(legendId);
+    if (!canvas) return;
+
+    const map = new google.maps.Map(canvas, {
+      center: day.center,
+      zoom: day.zoom,
+      mapTypeControl: false,
+      streetViewControl: false,
+      fullscreenControl: true,
+      zoomControl: true,
+      styles: [
+        { featureType:'poi', elementType:'labels', stylers:[{ visibility:'off' }] },
+        { featureType:'transit', elementType:'labels', stylers:[{ visibility:'off' }] }
+      ]
+    });
+
+    mapInstances[dayId] = { map, markers: [], infoWins: [] };
+
+    // Draw polyline connecting stops
+    const path = day.places.map(p => ({ lat: p.lat, lng: p.lng }));
+    new google.maps.Polyline({
+      path,
+      geodesic: true,
+      strokeColor: day.color,
+      strokeOpacity: 0.5,
+      strokeWeight: 2,
+      map
+    });
+
+    // Legend HTML
+    let legendHTML = '';
+
+    day.places.forEach((p, i) => {
+      const name = isEn ? p.en : p.zh;
+      const type = isEn ? p.type_en : p.type_zh;
+      const hours = isEn
+        ? p.hours.replace('全天・Free','Open 24h · Free').replace('需提前預約','Book in advance').replace('截止','deadline')
+        : p.hours;
+
+      // Marker
+      const marker = new google.maps.Marker({
+        position: { lat: p.lat, lng: p.lng },
+        map,
+        icon: makeMarkerIcon(day.color, String(i + 1)),
+        label: { text: String(i + 1), color: '#ffffff', fontSize: '11px', fontWeight: '700' },
+        title: name,
+        zIndex: 10 + i
+      });
+
+      // Info window
+      const iw = new google.maps.InfoWindow({
+        content: `
+          <div style="font-family:'DM Sans',sans-serif;max-width:200px;padding:4px 2px">
+            <div style="font-size:13px;font-weight:600;color:#1E3A38;margin-bottom:3px">${p.icon} ${name}</div>
+            <div style="font-size:11px;color:#4A7A76;margin-bottom:2px">${type}</div>
+            ${hours ? `<div style="font-size:11px;color:#7AA8A4">🕘 ${hours}</div>` : ''}
+            <a href="${p.url}" target="_blank" style="display:inline-block;margin-top:7px;font-size:11px;color:#E8856A;font-weight:500;text-decoration:none;border-bottom:1px solid rgba(232,133,106,0.4)">
+              ${isEn ? 'Open in Google Maps →' : '在 Google Maps 查看 →'}
+            </a>
+          </div>`
+      });
+
+      marker.addListener('click', () => {
+        mapInstances[dayId].infoWins.forEach(w => w.close());
+        iw.open(map, marker);
+      });
+
+      mapInstances[dayId].markers.push(marker);
+      mapInstances[dayId].infoWins.push(iw);
+
+      // Legend item
+      legendHTML += `
+        <div class="gmap-legend-item" onclick="focusMarker('${dayId}',${i})" title="${name}">
+          <span class="legend-num" style="background:${day.color}">${i+1}</span>
+          <span>${name}</span>
+        </div>`;
+    });
+
+    if (legendEl) legendEl.innerHTML = legendHTML;
+  });
+}
+
+function focusMarker(dayId, idx) {
+  const inst = mapInstances[dayId];
+  if (!inst) return;
+  inst.infoWins.forEach(w => w.close());
+  const marker = inst.markers[idx];
+  inst.map.panTo(marker.getPosition());
+  inst.map.setZoom(15);
+  inst.infoWins[idx].open(inst.map, marker);
+}
+
+/* ── LANGUAGE SWITCH ── */
+function setLang(lang) {
+  document.body.classList.toggle('en', lang === 'en');
+  document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  document.documentElement.lang = lang === 'en' ? 'en' : 'zh-Hant';
+  localStorage.setItem('jeju-lang', lang);
+  // Re-init maps with new language if already loaded
+  if (typeof google !== 'undefined' && google.maps) initMaps();
+}
+
+// Restore saved language before maps load
+const saved = localStorage.getItem('jeju-lang');
+if (saved === 'en') {
+  document.body.classList.add('en');
+  document.getElementById('btn-zh').classList.remove('active');
+  document.getElementById('btn-en').classList.add('active');
+}
+
+/* ── STICKY NAV ── */
+const sections = document.querySelectorAll('.day-section');
+const navBtns = document.querySelectorAll('.nav-btn');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      navBtns.forEach(b => b.classList.remove('active'));
+      const active = document.querySelector(`.nav-btn[href="#${e.target.id}"]`);
+      if (active) active.classList.add('active');
+    }
+  });
+}, { threshold: 0.2, rootMargin: '-56px 0px 0px 0px' });
+sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
